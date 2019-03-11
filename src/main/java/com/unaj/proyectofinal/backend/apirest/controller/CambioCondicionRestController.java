@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unaj.proyectofinal.backend.apirest.models.entity.CambioCondiciones;
 import com.unaj.proyectofinal.backend.apirest.models.entity.Delegado;
+import com.unaj.proyectofinal.backend.apirest.models.service.CambioCondicionService;
 import com.unaj.proyectofinal.backend.apirest.models.service.ICambioCondicionService;
 
 @RestController
@@ -42,16 +44,9 @@ public class CambioCondicionRestController {
 		return cambioCondicion.save(cambioCondicioes);
 	}
 	
-	@PutMapping("cambioCondiciones/{id}")
-	public CambioCondiciones update(@RequestBody CambioCondiciones cambioCondiciones, @PathVariable Long id) {
-		CambioCondiciones CambioCondicionActual = cambioCondicion.findById(id);
-		
-		CambioCondicionActual.setMotivo_principal(cambioCondiciones.getMotivo_principal());
-		CambioCondicionActual.setDescripcion(cambioCondiciones.getDescripcion());
-		
-		return cambioCondicion.save(CambioCondicionActual);
-		
-		
+	@DeleteMapping("cambioCondiciones/{id}")
+	public void delete (@PathVariable Long id) {
+		cambioCondicion.delete(id);
 	}
 
 }

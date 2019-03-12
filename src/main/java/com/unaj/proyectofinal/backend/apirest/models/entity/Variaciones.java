@@ -21,9 +21,19 @@ public class Variaciones implements Serializable{
 	private long id_delegado;
 	private long id_tipo_contrato;
 	private long id_motivo;
+	private int cantidad;
 	private String tipo_variacion;
 	private String tipo_incorporacion;
 	private String descripcion;
+
+	
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
 
 	public long getId_variacion() {
 		return id_variacion;

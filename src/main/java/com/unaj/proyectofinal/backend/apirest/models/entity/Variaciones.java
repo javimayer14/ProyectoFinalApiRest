@@ -1,6 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.models.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,8 +26,17 @@ public class Variaciones implements Serializable{
 	private String tipo_variacion;
 	private String tipo_incorporacion;
 	private String descripcion;
+	private Date fecha;
 
 	
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 	public int getCantidad() {
 		return cantidad;
 	}

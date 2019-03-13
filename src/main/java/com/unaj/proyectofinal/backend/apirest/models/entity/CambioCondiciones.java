@@ -1,6 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.models.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,16 @@ public class CambioCondiciones implements Serializable{
 	private String motivo_principal;
 	private String sub_motivo;
 	private String Descripcion;
+	private Date fecha;
+
+	
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
 	public long getId_cambio_condicion() {
 		return id_cambio_condicion;

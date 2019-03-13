@@ -1,12 +1,15 @@
 package com.unaj.proyectofinal.backend.apirest.models.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
 @Table(name = "conflicto_laboral")
 public class ConflictosLaborales implements Serializable{
@@ -20,6 +23,17 @@ public class ConflictosLaborales implements Serializable{
 	private String motivo;
 	private String medida;
 	private String descripcion;
+
+	private Date fecha;
+
+	
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
 	public long getId_conflicto() {
 		return id_conflicto;

@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unaj.proyectofinal.backend.apirest.models.entity.Delegado;
 import com.unaj.proyectofinal.backend.apirest.models.service.IDelegadoService;
 
-@CrossOrigin(origins={"http://localhost:8100"})
+@CrossOrigin(origins={"http://localhost:8100","http://localhost:4200"})
+
 @RestController
 @RequestMapping("/api")
 public class DelegadoRestController {
@@ -46,8 +47,8 @@ public class DelegadoRestController {
 		public Delegado update(@RequestBody Delegado delegado, @PathVariable Long id) {
 			Delegado delegadoActual = delegadoService.findById(id);
 			
-			delegadoActual.setApellido(delegado.getApellido());
-			delegadoActual.setNombre(delegado.getNombre());
+			delegadoActual.setApellidoUsuario(delegado.getApellidoUsuario());
+			delegadoActual.setNombreUsuario(delegado.getNombreUsuario());
 			
 			return delegadoService.save(delegadoActual);
 			

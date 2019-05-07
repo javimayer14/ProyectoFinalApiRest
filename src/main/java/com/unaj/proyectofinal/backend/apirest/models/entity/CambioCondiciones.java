@@ -4,10 +4,15 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "cambio_laboral")
@@ -16,14 +21,26 @@ public class CambioCondiciones implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_cambio_condicion;
-	private long id_delegado;
+	private long idCambioCondicion;
 	private String motivo_principal;
 	private String sub_motivo;
 	private String Descripcion;
 	private Date fecha;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_delegado")
+	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+	private Delegado delegado;
 
 	
+	public Delegado getDelegado() {
+		return delegado;
+	}
+
+	public void setDelegado(Delegado delegado) {
+		this.delegado = delegado;
+	}
+
 	public Date getFecha() {
 		return fecha;
 	}
@@ -32,20 +49,12 @@ public class CambioCondiciones implements Serializable{
 		this.fecha = fecha;
 	}
 
-	public long getId_cambio_condicion() {
-		return id_cambio_condicion;
+	public long getIdCambioCondicion() {
+		return idCambioCondicion;
 	}
 
-	public void setId_cambio_condicion(long id_cambio_condicion) {
-		this.id_cambio_condicion = id_cambio_condicion;
-	}
-
-	public long getId_delegado() {
-		return id_delegado;
-	}
-
-	public void setId_delegado(long id_delegado) {
-		this.id_delegado = id_delegado;
+	public void setIdCambioCondicion(long idCambioCondicion) {
+		this.idCambioCondicion = idCambioCondicion;
 	}
 
 	public String getMotivo_principal() {
@@ -71,5 +80,7 @@ public class CambioCondiciones implements Serializable{
 	public void setDescripcion(String descripcion) {
 		Descripcion = descripcion;
 	}
+
+
 
 }

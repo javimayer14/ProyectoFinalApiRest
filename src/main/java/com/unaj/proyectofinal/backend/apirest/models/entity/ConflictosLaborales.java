@@ -4,27 +4,46 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
-@Table(name = "conflicto_laboral")
+@Table (name = "conflicto_laboral")
 public class ConflictosLaborales implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_conflicto;
-	private long id_delegado;
+	private long IdConflicto;
+	
+	public long getIdConflicto() {
+		return IdConflicto;
+	}
+
+	public void setIdConflicto(long idConflicto) {
+		IdConflicto = idConflicto;
+	}
+
+	
 	private String motivo;
 	private String medida;
 	private String descripcion;
-
 	private Date fecha;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_delegado")
+	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+	private Delegado delegado;
+	
 
 	
 	public Date getFecha() {
@@ -35,21 +54,6 @@ public class ConflictosLaborales implements Serializable{
 		this.fecha = fecha;
 	}
 
-	public long getId_conflicto() {
-		return id_conflicto;
-	}
-
-	public void setId_conflicto(long id_conflicto) {
-		this.id_conflicto = id_conflicto;
-	}
-
-	public long getId_delegado() {
-		return id_delegado;
-	}
-
-	public void setId_delegado(long id_delegado) {
-		this.id_delegado = id_delegado;
-	}
 
 	public String getMotivo() {
 		return motivo;
@@ -74,5 +78,17 @@ public class ConflictosLaborales implements Serializable{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public Delegado getDelegado() {
+		return delegado;
+	}
+
+	public void setDelegado(Delegado delegado) {
+		this.delegado = delegado;
+	}
+	
+	
+
+
 
 }

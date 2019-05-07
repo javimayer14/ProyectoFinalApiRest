@@ -49,5 +49,11 @@ public class CambioCondicionRestController {
 	public void delete (@PathVariable Long id) {
 		cambioCondicion.delete(id);
 	}
+	
+	@GetMapping("cambioCondiciones/busqueda")
+	public List buscarConflictoLaboral() {
+		//return cambioCondicion.buscarCambioCondicionUsuario();
+		return cambioCondicion.buscarCambioCondicionEmpresa();
+	}
 
 }

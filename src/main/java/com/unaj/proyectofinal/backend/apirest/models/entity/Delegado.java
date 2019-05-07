@@ -2,12 +2,17 @@ package com.unaj.proyectofinal.backend.apirest.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "delegado")
@@ -17,8 +22,8 @@ public class Delegado implements Serializable {
 	private static final long serialVersionUID = 7044934755315999798L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_delegado;
-	
+	private long idDelegado;
+		
 	private String usuario;
 	private String contrasenia;
 	private String fechaInicioEnProyecto;
@@ -54,12 +59,7 @@ public class Delegado implements Serializable {
 	private String cctNro4;
 	private String ramaActividad4;
 	private String descripcion;
-	public long getId_delegado() {
-		return id_delegado;
-	}
-	public void setId_delegado(long id_delegado) {
-		this.id_delegado = id_delegado;
-	}
+
 	public String getUsuario() {
 		return usuario;
 	}

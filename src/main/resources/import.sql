@@ -1,2 +1,3 @@
-INSERT INTO variacion_laboral (id_delegado,id_tipo_contrato,id_motivo,cantidad, tipo_variacion,tipo_incorporacion,descripcion) values (1,2,3,2,'lala','lala','aweaweawelala.com');
-INSERT INTO conflicto_laboral (id_conflicto,id_delegado,motivo, medida,descripcion) values (1,2,'lala','lala','aweaweawelala.com'); 
+INSERT INTO delegado (id_delegado, actividad, antiguedad, apellido_usuario, cct, cct_nro,  codigo_postal, contrasenia, cuit, descripcion, dni, telefono, telefono_celular, nombre_usuario, nombre_empresa) values (null,'sdf',2,'sdf','sdf',null,null,null,null,null, 39876765, 43234564, 2332212, 'pepe','mercel');
+
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_delegado) values (null,'descripcion_conflicto','2004-08-01','paro','sueldo bajo',1);

@@ -53,8 +53,8 @@ public class VariacionesRestController {
 	
 	@GetMapping("variaciones/busqueda")
 	public List buscarVariacionLaboral() {
-		return variacionesService.buscarVariacionesUsuario();
-		//return variacionesService.buscarVariacionesEmpresa();
+		//return variacionesService.buscarVariacionesUsuario();
+		return variacionesService.buscarVariacionesEmpresa();
 	}
 	
 }

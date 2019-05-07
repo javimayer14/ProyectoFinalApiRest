@@ -56,7 +56,7 @@ public class VariacionesService implements IVariacionesService{
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "me";
-		return variacionesDao.buscarVariacionesUsuario(fd, fh, dato);
+		return variacionesDao.buscarVariacionesEmpresa(fd, fh, dato);
 	}
 
 }

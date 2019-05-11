@@ -1,5 +1,6 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,26 @@ public class CambioCondicionService implements ICambioCondicionService{
 		cambioCondicion.deleteById(id);
 		
 	}
+
+	@Override
+	@Transactional
+	public  List buscarCambioCondicionUsuario() {
+		// TODO Auto-generated method stub
+		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+		String dato  = "pe";
+		return cambioCondicion.buscarCambioCondicionUsuario(fd, fh, dato);
+		
+	}
+
+	@Override
+	@Transactional
+	public List buscarCambioCondicionEmpresa() {
+		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+		String dato  = "me";
+		return cambioCondicion.buscarCambioCondicionEmpresa(fd, fh, dato);
+	}
+	
 
 }

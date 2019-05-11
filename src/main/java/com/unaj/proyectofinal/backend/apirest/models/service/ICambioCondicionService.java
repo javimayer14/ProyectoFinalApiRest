@@ -13,4 +13,7 @@ public interface ICambioCondicionService {
 	public CambioCondiciones save(CambioCondiciones cambioCondiciones);
 
 	public void delete(Long id);
+	
+	public List buscarCambioCondicionUsuario ();
+	public List buscarCambioCondicionEmpresa ();
 }

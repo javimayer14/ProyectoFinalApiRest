@@ -1,5 +1,6 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,24 @@ public class VariacionesService implements IVariacionesService{
 	public void delete(Long id) {
 		variacionesDao.deleteById(id);
 		
+	}
+
+	@Override
+	@Transactional
+	public List buscarVariacionesUsuario() {
+		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+		String dato  = "pe";
+		return variacionesDao.buscarVariacionesUsuario(fd, fh, dato);
+	}
+
+	@Override
+	@Transactional
+	public List buscarVariacionesEmpresa() {
+		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+		String dato  = "me";
+		return variacionesDao.buscarVariacionesEmpresa(fd, fh, dato);
 	}
 
 }

@@ -4,10 +4,15 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -19,7 +24,6 @@ public class Variaciones implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_variacion;
-	private long id_delegado;
 	private long id_tipo_contrato;
 	private long id_motivo;
 	private int cantidad;
@@ -28,9 +32,21 @@ public class Variaciones implements Serializable{
 	private String descripcion;
 	private Date fecha;
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_delegado")
+	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+	private Delegado delegado;
 	
 	public Date getFecha() {
 		return fecha;
+	}
+
+	public Delegado getDelegado() {
+		return delegado;
+	}
+
+	public void setDelegado(Delegado delegado) {
+		this.delegado = delegado;
 	}
 
 	public void setFecha(Date fecha) {
@@ -53,13 +69,6 @@ public class Variaciones implements Serializable{
 		this.id_variacion = id_variacion;
 	}
 
-	public long getId_delegado() {
-		return id_delegado;
-	}
-
-	public void setId_delegado(long id_delegado) {
-		this.id_delegado = id_delegado;
-	}
 
 	public long getId_tipo_contrato() {
 		return id_tipo_contrato;

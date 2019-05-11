@@ -14,4 +14,7 @@ public interface IVariacionesService {
 	public Variaciones save(Variaciones variacion);
 	
 	public void delete(Long id);
+	
+	public List buscarVariacionesUsuario ();
+	public List buscarVariacionesEmpresa ();
 }

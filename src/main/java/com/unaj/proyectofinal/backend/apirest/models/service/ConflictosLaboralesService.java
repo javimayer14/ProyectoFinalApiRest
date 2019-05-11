@@ -1,5 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
+
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +43,33 @@ public class ConflictosLaboralesService implements IConflictosLaboralesService{
 		conflictosDao.deleteById(id);
 		
 	}
+
+	@Override
+	@Transactional
+	public List buscarConflictoLaboralUsuario() {
+		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+		String dato  = "pe";
+		return conflictosDao.buscarConflictoLaboralUsuario(fd,fh,dato);
+	}
+
+	@Override
+	@Transactional
+	public List buscarConflictoLaboralEmpresa() {
+		// TODO Auto-generated method stub
+		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+		String dato  = "me";
+		return conflictosDao.buscarConflictoLaboralEmpresa(fd, fh,dato);
+	}
+
+//	@Override
+//	@Transactional
+//	public List buscarConflictoLaboralEcho() {
+//		Date fd = java.sql.Date.valueOf( "2000-01-31" );
+//		Date fh = java.sql.Date.valueOf( "2020-01-31" );
+//		String dato  = "ba";
+//		return conflictosDao.buscarConflictoLaboralHecho(fd, fh, dato);
+//	}
 
 }

@@ -14,5 +14,10 @@ public interface IConflictosLaboralesService {
 	public ConflictosLaborales save(ConflictosLaborales conflictosLaborales);
 
 	public void delete(Long id);
+	
+	public List buscarConflictoLaboralUsuario();
 
+	public List buscarConflictoLaboralEmpresa();
+	
+//	public List buscarConflictoLaboralEcho();
 }

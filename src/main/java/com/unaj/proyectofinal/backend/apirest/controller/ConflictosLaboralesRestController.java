@@ -55,5 +55,12 @@ public class ConflictosLaboralesRestController {
 	public void delete (@PathVariable Long id) {
 		conflictosService.delete(id);
 	}
+	
+	@GetMapping("conflictos/busqueda")
+	public List buscarConflictoLaboral() {
+		return conflictosService.buscarConflictoLaboralUsuario();
+		//return conflictosService.buscarConflictoLaboralEmpresa();
+		//return conflictosService.buscarConflictoLaboralEcho();
+	}
 
 }

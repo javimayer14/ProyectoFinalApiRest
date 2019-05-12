@@ -19,7 +19,7 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.CambioCondiciones;
 import com.unaj.proyectofinal.backend.apirest.models.entity.Delegado;
 import com.unaj.proyectofinal.backend.apirest.models.service.CambioCondicionService;
 import com.unaj.proyectofinal.backend.apirest.models.service.ICambioCondicionService;
-@CrossOrigin(origins={"http://localhost:8100"})
+@CrossOrigin(origins={"http://localhost:8100","http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
 public class CambioCondicionRestController {

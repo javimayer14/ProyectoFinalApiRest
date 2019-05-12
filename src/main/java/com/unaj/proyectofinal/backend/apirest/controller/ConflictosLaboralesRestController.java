@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unaj.proyectofinal.backend.apirest.models.entity.ConflictosLaborales;
 
 import com.unaj.proyectofinal.backend.apirest.models.service.IConflictosLaboralesService;
-@CrossOrigin(origins={"http://localhost:8100"})
+@CrossOrigin(origins={"http://localhost:8100","http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
 public class ConflictosLaboralesRestController {

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +21,7 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.Variaciones;
 import com.unaj.proyectofinal.backend.apirest.models.service.IDelegadoService;
 import com.unaj.proyectofinal.backend.apirest.models.service.IVariacionesService;
 
-@CrossOrigin(origins={"http://localhost:8100"})
+@CrossOrigin(origins={"http://localhost:8100","http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
 public class VariacionesRestController {
@@ -52,9 +54,10 @@ public class VariacionesRestController {
 	}
 	
 	@GetMapping("variaciones/busqueda")
-	public List buscarVariacionLaboral() {
-		//return variacionesService.buscarVariacionesUsuario();
-		return variacionesService.buscarVariacionesEmpresa();
+	@ResponseBody()
+	public List buscarVariacionLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam String fechaDesde,@RequestParam String fechaHasta) {
+		return variacionesService.buscarVariacionesUsuario();
+		//return variacionesService.buscarVariacionesEmpresa();
 	}
 	
 }

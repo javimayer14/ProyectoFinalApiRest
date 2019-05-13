@@ -22,9 +22,9 @@ public class CambioCondiciones implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idCambioCondicion;
-	private String motivo_principal;
-	private String sub_motivo;
-	private String Descripcion;
+	private String motivoPrincipal;
+	private String subMotivo;
+	private String descripcion;
 	private Date fecha;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -57,30 +57,33 @@ public class CambioCondiciones implements Serializable{
 		this.idCambioCondicion = idCambioCondicion;
 	}
 
-	public String getMotivo_principal() {
-		return motivo_principal;
+
+
+	public String getMotivoPrincipal() {
+		return motivoPrincipal;
 	}
 
-	public void setMotivo_principal(String motivo_principal) {
-		this.motivo_principal = motivo_principal;
+	public void setMotivoPrincipal(String motivoPrincipal) {
+		this.motivoPrincipal = motivoPrincipal;
 	}
 
-	public String getSub_motivo() {
-		return sub_motivo;
+	public String getSubMotivo() {
+		return subMotivo;
 	}
 
-	public void setSub_motivo(String sub_motivo) {
-		this.sub_motivo = sub_motivo;
+	public void setSubMotivo(String subMotivo) {
+		this.subMotivo = subMotivo;
 	}
 
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
+	
 
 
 }

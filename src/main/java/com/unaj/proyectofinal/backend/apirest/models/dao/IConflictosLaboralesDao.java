@@ -11,14 +11,14 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.ConflictosLaborales;
 
 public interface IConflictosLaboralesDao extends CrudRepository<ConflictosLaborales, Long> {
 
-	@Query("SELECT d.nombreUsuario , conf.motivo, conf.motivo, conf.fecha " + 
+	@Query("SELECT d.nombreUsuario, d.nombreEmpresa, d.mail , conf.motivo, conf.medida, conf.descripcion, conf.fecha " + 
 			"					 FROM ConflictosLaborales conf" + 
 			"					 LEFT JOIN conf.delegado d " + 
 			"					 WHERE d.nombreUsuario LIKE  %:dato%"+ 
 			"					 AND conf.fecha BETWEEN :fechaDesde AND :fechaHasta" )
 	public List buscarConflictoLaboralUsuario(@Param("fechaDesde") Date fechaDesde, @Param("fechaHasta") Date fechaHasta, @Param("dato") String dato);
 	
-	@Query("SELECT d.nombreUsuario , conf.motivo, conf.motivo, conf.fecha " + 
+	@Query("SELECT d.nombreUsuario, d.nombreEmpresa, d.mail , conf.motivo, conf.medida, conf.descripcion, conf.fecha " + 
 			"					 FROM ConflictosLaborales conf" + 
 			"					 LEFT JOIN conf.delegado d " + 
 			"					 WHERE d.nombreEmpresa LIKE  %:dato%"+ 

@@ -27,8 +27,8 @@ public class Variaciones implements Serializable{
 	private long id_tipo_contrato;
 	private long id_motivo;
 	private int cantidad;
-	private String tipo_variacion;
-	private String tipo_incorporacion;
+	private String tipoVariacion;
+	private String tipoIncorporacion;
 	private String descripcion;
 	private Date fecha;
 
@@ -86,20 +86,21 @@ public class Variaciones implements Serializable{
 		this.id_motivo = id_motivo;
 	}
 
-	public String getTipo_variacion() {
-		return tipo_variacion;
+		
+	public String getTipoVariacion() {
+		return tipoVariacion;
 	}
 
-	public void setTipo_variacion(String tipo_variacion) {
-		this.tipo_variacion = tipo_variacion;
+	public void setTipoVariacion(String tipoVariacion) {
+		this.tipoVariacion = tipoVariacion;
 	}
 
-	public String getTipo_incorporacion() {
-		return tipo_incorporacion;
+	public String getTipoIncorporacion() {
+		return tipoIncorporacion;
 	}
 
-	public void setTipo_incorporacion(String tipo_incorporacion) {
-		this.tipo_incorporacion = tipo_incorporacion;
+	public void setTipoIncorporacion(String tipoIncorporacion) {
+		this.tipoIncorporacion = tipoIncorporacion;
 	}
 
 	public String getDescripcion() {

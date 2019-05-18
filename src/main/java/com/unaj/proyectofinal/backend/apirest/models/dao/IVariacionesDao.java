@@ -11,14 +11,14 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.Variaciones;
 
 public interface IVariacionesDao extends CrudRepository<Variaciones, Long> {
 
-	@Query("SELECT d.nombreUsuario , var.fecha " + 
+	@Query("SELECT d.nombreUsuario, d.apellidoUsuario, d.mail , var.fecha, var.tipoVariacion, var.tipoIncorporacion, var.descripcion " + 
 			"					 FROM Variaciones var" + 
 			"					 INNER JOIN var.delegado d " + 
 			"					 WHERE d.nombreUsuario LIKE  %:dato%"+ 
 			"					 AND var.fecha BETWEEN :fechaDesde AND :fechaHasta" )
 	public List buscarVariacionesUsuario(@Param("fechaDesde") Date fechaDesde, @Param("fechaHasta") Date fechaHasta, @Param("dato") String dato);
 	
-	@Query("SELECT d.nombreUsuario , var.fecha " + 
+	@Query("SELECT d.nombreUsuario, d.apellidoUsuario, d.mail , var.fecha, var.tipoVariacion, var.tipoIncorporacion, var.descripcion " +
 			"					 FROM Variaciones var" + 
 			"					 INNER JOIN var.delegado d " + 
 			"					 WHERE d.nombreEmpresa LIKE  %:dato%"+ 

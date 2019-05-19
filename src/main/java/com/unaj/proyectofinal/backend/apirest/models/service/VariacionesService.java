@@ -1,5 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
+
+
 import java.sql.Date;
 import java.util.List;
 
@@ -43,16 +45,13 @@ public class VariacionesService implements IVariacionesService{
 
 	@Override
 	@Transactional
-	public List buscarVariacionesUsuario() {
-		Date fd = java.sql.Date.valueOf( "2000-01-31" );
-		Date fh = java.sql.Date.valueOf( "2020-01-31" );
-		String dato  = "pe";
-		return variacionesDao.buscarVariacionesUsuario(fd, fh, dato);
+	public List buscarVariacionesUsuario(String date , Date fechaDesde, Date fechaHasta) {
+		return variacionesDao.buscarVariacionesUsuario(fechaDesde, fechaHasta, date);
 	}
 
 	@Override
 	@Transactional
-	public List buscarVariacionesEmpresa() {
+	public List buscarVariacionesEmpresa(String date , Date fechaDesde, Date fechaHasta) {
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "me";

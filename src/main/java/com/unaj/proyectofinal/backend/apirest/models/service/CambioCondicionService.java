@@ -43,22 +43,22 @@ public class CambioCondicionService implements ICambioCondicionService{
 
 	@Override
 	@Transactional
-	public  List buscarCambioCondicionUsuario() {
+	public  List buscarCambioCondicionUsuario(String date , Date fechaDesde, Date fechaHasta) {
 		// TODO Auto-generated method stub
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "pe";
-		return cambioCondicion.buscarCambioCondicionUsuario(fd, fh, dato);
+		return cambioCondicion.buscarCambioCondicionUsuario(fechaDesde, fechaHasta, date);
 		
 	}
 
 	@Override
 	@Transactional
-	public List buscarCambioCondicionEmpresa() {
+	public List buscarCambioCondicionEmpresa(String date , Date fechaDesde, Date fechaHasta) {
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "me";
-		return cambioCondicion.buscarCambioCondicionEmpresa(fd, fh, dato);
+		return cambioCondicion.buscarCambioCondicionEmpresa(fechaDesde, fechaHasta, date);
 	}
 	
 

@@ -1,5 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.controller;
 
+
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +57,13 @@ public class VariacionesRestController {
 	
 	@GetMapping("variaciones/busqueda")
 	@ResponseBody()
-	public List buscarVariacionLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam String fechaDesde,@RequestParam String fechaHasta) {
-		return variacionesService.buscarVariacionesUsuario();
-		//return variacionesService.buscarVariacionesEmpresa();
+	public List buscarVariacionLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam Date fechaDesde,@RequestParam Date fechaHasta) {
+		
+			return variacionesService.buscarVariacionesUsuario(descripcionBusqueda, fechaDesde, fechaHasta );
+		
+			//return variacionesService.buscarVariacionesEmpresa(descripcionBusqueda, fechaDesde, fechaHasta);
+		
+		
 	}
 	
 }

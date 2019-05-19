@@ -1,5 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
+
+import java.sql.Date;
 import java.util.List;
 
 import com.unaj.proyectofinal.backend.apirest.models.entity.Delegado;
@@ -15,6 +17,12 @@ public interface IVariacionesService {
 	
 	public void delete(Long id);
 	
-	public List buscarVariacionesUsuario ();
-	public List buscarVariacionesEmpresa ();
+	public List buscarVariacionesUsuario (String descripcionBusqueda, Date FechaDesde, Date FechaHasta);
+	public List buscarVariacionesEmpresa (String descripcionBusqueda, Date FechaDesde, Date FechaHasta);
+
+	
+
+	
+
+
 }

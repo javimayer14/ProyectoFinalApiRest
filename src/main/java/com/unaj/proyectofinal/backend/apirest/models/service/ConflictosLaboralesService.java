@@ -46,21 +46,21 @@ public class ConflictosLaboralesService implements IConflictosLaboralesService{
 
 	@Override
 	@Transactional
-	public List buscarConflictoLaboralUsuario() {
+	public List buscarConflictoLaboralUsuario(String date,Date fechaDesde,Date fechaHasta) {
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "pe";
-		return conflictosDao.buscarConflictoLaboralUsuario(fd,fh,dato);
+		return conflictosDao.buscarConflictoLaboralUsuario(fechaDesde,fechaHasta,date);
 	}
 
 	@Override
 	@Transactional
-	public List buscarConflictoLaboralEmpresa() {
+	public List buscarConflictoLaboralEmpresa(String date,Date fechaDesde,Date fechaHasta) {
 		// TODO Auto-generated method stub
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "me";
-		return conflictosDao.buscarConflictoLaboralEmpresa(fd, fh,dato);
+		return conflictosDao.buscarConflictoLaboralEmpresa(fechaDesde,fechaHasta,date);
 	}
 
 //	@Override

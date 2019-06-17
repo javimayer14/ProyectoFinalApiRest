@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,29 +30,29 @@ public class CambioCondicionRestController {
 	@Autowired
 	private ICambioCondicionService cambioCondicion;
 	
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/cambioCondiciones")
 	public List<CambioCondiciones> index(){
 		return cambioCondicion.findAll();
 		
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/cambioCondiciones/{id}")
 	public CambioCondiciones show(@PathVariable Long id) {
 		return cambioCondicion.findById(id);
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@PostMapping("/cambioCondiciones")
 	@ResponseStatus(HttpStatus.CREATED)
 	public CambioCondiciones create (@RequestBody CambioCondiciones cambioCondicioes) {
 		return cambioCondicion.save(cambioCondicioes);
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@DeleteMapping("cambioCondiciones/{id}")
 	public void delete (@PathVariable Long id) {
 		cambioCondicion.delete(id);
 	}
-	
+	@Secured({"ROLE_ADMIN"})
 	@GetMapping("cambioCondiciones/busqueda")
 	public List buscarConflictoLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam Date fechaDesde,@RequestParam Date fechaHasta) {
 		return cambioCondicion.buscarCambioCondicionUsuario(descripcionBusqueda, fechaDesde, fechaHasta);

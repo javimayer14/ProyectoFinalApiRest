@@ -17,8 +17,10 @@ public interface IVariacionesService {
 	
 	public void delete(Long id);
 	
-	public List buscarVariacionesUsuario (String descripcionBusqueda, Date FechaDesde, Date FechaHasta);
-	public List buscarVariacionesEmpresa (String descripcionBusqueda, Date FechaDesde, Date FechaHasta);
+	public List buscarVariacionesUsuario (String descripcionBusqueda, Date FechaDesde, Date FechaHasta, String tipoVariacion);
+	public List buscarVariacionesEmpresa (String descripcionBusqueda, Date FechaDesde, Date FechaHasta, String tipoVariacion);
+
+	
 
 	
 

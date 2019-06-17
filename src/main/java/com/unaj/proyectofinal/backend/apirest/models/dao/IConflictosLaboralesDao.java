@@ -11,7 +11,7 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.ConflictosLaborales;
 
 public interface IConflictosLaboralesDao extends CrudRepository<ConflictosLaborales, Long> {
 
-	@Query("SELECT d.nombreUsuario, d.nombreEmpresa, d.mail , conf.motivo, conf.medida, conf.descripcion, conf.fecha " + 
+	@Query("SELECT d.nombreUsuario, d.apellidoUsuario, d.nombreEmpresa, conf.fecha, conf.motivo, conf.descripcion " + 
 			"					 FROM ConflictosLaborales conf" + 
 			"					 LEFT JOIN conf.delegado d " + 
 			"					 WHERE d.nombreUsuario LIKE  %:dato%"+ 

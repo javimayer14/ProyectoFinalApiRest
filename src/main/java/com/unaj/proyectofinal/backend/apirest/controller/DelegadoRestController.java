@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,18 +32,19 @@ public class DelegadoRestController {
 			return delegadoService.findAll();
 			
 		}
-		
+		@Secured({"ROLE_ADMIN","ROLE_USER"})
 		@GetMapping("/delegados/{id}")
 		public Delegado show(@PathVariable Long id) {
 			return delegadoService.findById(id);
 		}
 		
+		@Secured("ROLE_ADMIN")
 		@PostMapping("/delegados")
 		@ResponseStatus(HttpStatus.CREATED)
 		public Delegado create (@RequestBody Delegado delegado) {
 			return delegadoService.save(delegado);
 		}
-		
+		@Secured("ROLE_ADMIN")
 		@PutMapping("delegados/{id}")
 		public Delegado update(@RequestBody Delegado delegado, @PathVariable Long id) {
 			Delegado delegadoActual = delegadoService.findById(id);
@@ -54,7 +56,7 @@ public class DelegadoRestController {
 			
 			
 		}
-		
+		@Secured("ROLE_ADMIN")
 		@DeleteMapping("delegados/{id}")
 		public void delete (@PathVariable Long id) {
 			delegadoService.delete(id);

@@ -45,17 +45,17 @@ public class VariacionesService implements IVariacionesService{
 
 	@Override
 	@Transactional
-	public List buscarVariacionesUsuario(String date , Date fechaDesde, Date fechaHasta) {
-		return variacionesDao.buscarVariacionesUsuario(fechaDesde, fechaHasta, date);
+	public List buscarVariacionesUsuario(String date , Date fechaDesde, Date fechaHasta, String tipoVariacion) {
+		return variacionesDao.buscarVariacionesUsuario(fechaDesde, fechaHasta, date, tipoVariacion);
 	}
 
 	@Override
 	@Transactional
-	public List buscarVariacionesEmpresa(String date , Date fechaDesde, Date fechaHasta) {
+	public List buscarVariacionesEmpresa(String date , Date fechaDesde, Date fechaHasta, String tipoVariacion) {
 		Date fd = java.sql.Date.valueOf( "2000-01-31" );
 		Date fh = java.sql.Date.valueOf( "2020-01-31" );
 		String dato  = "me";
-		return variacionesDao.buscarVariacionesEmpresa(fd, fh, dato);
+		return variacionesDao.buscarVariacionesEmpresa(fd, fh, dato, tipoVariacion);
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,18 +32,19 @@ public class VariacionesRestController {
 	@Autowired
 	private IVariacionesService variacionesService;
 	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/variaciones")
 	public List<Variaciones> index(){
 		return variacionesService.findAll();
 		
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@PostMapping("/variaciones")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Variaciones create (@RequestBody Variaciones variacion) {
 		return variacionesService.save(variacion);
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@PutMapping("variaciones/{id}")
 	public Variaciones update(@RequestBody Variaciones variaciones, @PathVariable Long id) {
 		Variaciones variacionActual = variacionesService.findById(id);
@@ -54,12 +56,12 @@ public class VariacionesRestController {
 		
 		
 	}
-	
+	@Secured({"ROLE_ADMIN"})
 	@GetMapping("variaciones/busqueda")
 	@ResponseBody()
-	public List buscarVariacionLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam Date fechaDesde,@RequestParam Date fechaHasta) {
+	public List buscarVariacionLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam Date fechaDesde,@RequestParam Date fechaHasta,@RequestParam String tipoVariacion) {
 		
-			return variacionesService.buscarVariacionesUsuario(descripcionBusqueda, fechaDesde, fechaHasta );
+			return variacionesService.buscarVariacionesUsuario(descripcionBusqueda, fechaDesde, fechaHasta,tipoVariacion );
 		
 			//return variacionesService.buscarVariacionesEmpresa(descripcionBusqueda, fechaDesde, fechaHasta);
 		

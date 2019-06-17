@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,23 +27,24 @@ import com.unaj.proyectofinal.backend.apirest.models.service.IConflictosLaborale
 public class ConflictosLaboralesRestController {
 	@Autowired
 	private IConflictosLaboralesService conflictosService;
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/conflictosLaborales")
 	public List<ConflictosLaborales> index(){
 		return conflictosService.findAll();
 		
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/conflictosLaborales/{id}")
 	public ConflictosLaborales show(@PathVariable Long id) {
 		return conflictosService.findById(id);
 	}
-	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@PostMapping("/conflictosLaborales")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ConflictosLaborales create (@RequestBody ConflictosLaborales conflictosLaborales) {
 		return conflictosService.save(conflictosLaborales);
 	}
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@PutMapping("conflictosLaborales/{id}")
 	public ConflictosLaborales update(@RequestBody ConflictosLaborales conflictosLaborales, @PathVariable Long id) {
 		ConflictosLaborales conflictosActual =  conflictosService.findById(id);
@@ -53,12 +55,13 @@ public class ConflictosLaboralesRestController {
 		
 		
 	}
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@DeleteMapping("conflictosLaborales/{id}")
 	public void delete (@PathVariable Long id) {
 		conflictosService.delete(id);
 	}
-	
-	@GetMapping("conflictos/busqueda")
+	@Secured({"ROLE_ADMIN"})
+	@GetMapping("conflictosLaborales/busqueda")
 	public List buscarConflictoLaboral(@RequestParam String tipoBusqueda, @RequestParam String descripcionBusqueda,@RequestParam Date fechaDesde,@RequestParam Date fechaHasta) {
 		return conflictosService.buscarConflictoLaboralUsuario(descripcionBusqueda, fechaDesde, fechaHasta );
 		//return conflictosService.buscarConflictoLaboralEmpresa();

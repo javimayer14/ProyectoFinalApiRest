@@ -13,14 +13,14 @@ public interface IConflictosLaboralesDao extends CrudRepository<ConflictosLabora
 
 	@Query("SELECT d.nombreUsuario, d.apellidoUsuario, d.nombreEmpresa, conf.fecha, conf.motivo, conf.descripcion " + 
 			"					 FROM ConflictosLaborales conf" + 
-			"					 LEFT JOIN conf.delegado d " + 
+			"					 LEFT JOIN conf.usuario d " + 
 			"					 WHERE d.nombreUsuario LIKE  %:dato%"+ 
 			"					 AND conf.fecha BETWEEN :fechaDesde AND :fechaHasta" )
 	public List buscarConflictoLaboralUsuario(@Param("fechaDesde") Date fechaDesde, @Param("fechaHasta") Date fechaHasta, @Param("dato") String dato);
 	
 	@Query("SELECT d.nombreUsuario, d.nombreEmpresa, d.mail , conf.motivo, conf.medida, conf.descripcion, conf.fecha " + 
 			"					 FROM ConflictosLaborales conf" + 
-			"					 LEFT JOIN conf.delegado d " + 
+			"					 LEFT JOIN conf.usuario d " + 
 			"					 WHERE d.nombreEmpresa LIKE  %:dato%"+ 
 			"					 AND conf.fecha BETWEEN :fechaDesde AND :fechaHasta" )
 	

@@ -15,7 +15,7 @@ public interface IVariacionesDao extends CrudRepository<Variaciones, Long> {
 
 	@Query("SELECT d.nombreUsuario, d.apellidoUsuario, d.mail, d.nombreEmpresa , var.fecha, var.tipoVariacion, var.tipoIncorporacion, var.descripcion " + 
 			"					 FROM Variaciones var" + 
-			"					 INNER JOIN var.delegado d " + 
+			"					 INNER JOIN var.usuario d " + 
 			"					 WHERE d.nombreUsuario LIKE  %:dato%"+ 
 			"					 AND var.fecha BETWEEN :fechaDesde AND :fechaHasta"+
 			"					 AND var.tipoVariacion = :tipoVariacion"
@@ -24,7 +24,7 @@ public interface IVariacionesDao extends CrudRepository<Variaciones, Long> {
 	
 	@Query("SELECT d.nombreUsuario, d.apellidoUsuario, d.mail, d.nombreEmpresa , var.fecha, var.tipoVariacion, var.tipoIncorporacion, var.descripcion " +
 			"					 FROM Variaciones var" + 
-			"					 INNER JOIN var.delegado d " + 
+			"					 INNER JOIN var.usuario d " + 
 			"					 WHERE d.nombreEmpresa LIKE  %:dato%"+ 
 			"					 AND var.fecha BETWEEN :fechaDesde AND :fechaHasta"+
 			"					 AND var.tipoVariacion = :tipoVariacion")

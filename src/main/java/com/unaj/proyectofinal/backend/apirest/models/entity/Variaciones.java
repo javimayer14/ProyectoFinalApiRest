@@ -33,21 +33,26 @@ public class Variaciones implements Serializable{
 	private Date fecha;
 
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_delegado")
+	@JoinColumn(name="id_usuario")
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-	private Delegado delegado;
+	private Usuario usuario;
 	
+	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 	public Date getFecha() {
 		return fecha;
 	}
 
-	public Delegado getDelegado() {
-		return delegado;
-	}
-
-	public void setDelegado(Delegado delegado) {
-		this.delegado = delegado;
-	}
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;

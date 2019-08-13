@@ -11,20 +11,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table (name = "conflicto_laboral")
-public class ConflictosLaborales implements Serializable{
+@Table(name = "conflicto_laboral")
+public class ConflictosLaborales implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdConflicto;
-	
+
 	public long getIdConflicto() {
 		return IdConflicto;
 	}
@@ -33,19 +32,16 @@ public class ConflictosLaborales implements Serializable{
 		IdConflicto = idConflicto;
 	}
 
-	
 	private String motivo;
 	private String medida;
 	private String descripcion;
 	private Date fecha;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_usuario")
-	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-	private Usuario usuario;
-	
 
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_usuario")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private Usuario usuario;
+
 	public Date getFecha() {
 		return fecha;
 	}
@@ -53,7 +49,6 @@ public class ConflictosLaborales implements Serializable{
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-
 
 	public String getMotivo() {
 		return motivo;
@@ -86,7 +81,5 @@ public class ConflictosLaborales implements Serializable{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-
 
 }

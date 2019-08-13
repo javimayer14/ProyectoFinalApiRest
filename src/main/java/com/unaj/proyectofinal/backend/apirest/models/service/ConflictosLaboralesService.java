@@ -1,6 +1,5 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
-
 import java.sql.Date;
 import java.util.List;
 
@@ -12,12 +11,13 @@ import com.unaj.proyectofinal.backend.apirest.models.dao.IConflictosLaboralesDao
 import com.unaj.proyectofinal.backend.apirest.models.entity.ConflictosLaborales;
 
 @Service
-public class ConflictosLaboralesService implements IConflictosLaboralesService{
+public class ConflictosLaboralesService implements IConflictosLaboralesService {
 
 	@Autowired
 	private IConflictosLaboralesDao conflictosDao;
- 	@Override
- 	@Transactional
+
+	@Override
+	@Transactional
 	public List<ConflictosLaborales> findAll() {
 		// TODO Auto-generated method stub
 		return (List<ConflictosLaborales>) conflictosDao.findAll();
@@ -41,35 +41,22 @@ public class ConflictosLaboralesService implements IConflictosLaboralesService{
 	@Transactional
 	public void delete(Long id) {
 		conflictosDao.deleteById(id);
-		
+
 	}
 
 	@Override
 	@Transactional
-	public List buscarConflictoLaboralUsuario(String date,Date fechaDesde,Date fechaHasta) {
-		Date fd = java.sql.Date.valueOf( "2000-01-31" );
-		Date fh = java.sql.Date.valueOf( "2020-01-31" );
-		String dato  = "pe";
-		return conflictosDao.buscarConflictoLaboralUsuario(fechaDesde,fechaHasta,date);
+	public List<?> buscarConflictoLaboralUsuario(String date, Date fechaDesde, Date fechaHasta) {
+
+		return conflictosDao.buscarConflictoLaboralUsuario(fechaDesde, fechaHasta, date);
 	}
 
 	@Override
 	@Transactional
-	public List buscarConflictoLaboralEmpresa(String date,Date fechaDesde,Date fechaHasta) {
+	public List<?> buscarConflictoLaboralEmpresa(String date, Date fechaDesde, Date fechaHasta) {
 		// TODO Auto-generated method stub
-		Date fd = java.sql.Date.valueOf( "2000-01-31" );
-		Date fh = java.sql.Date.valueOf( "2020-01-31" );
-		String dato  = "me";
-		return conflictosDao.buscarConflictoLaboralEmpresa(fechaDesde,fechaHasta,date);
-	}
 
-//	@Override
-//	@Transactional
-//	public List buscarConflictoLaboralEcho() {
-//		Date fd = java.sql.Date.valueOf( "2000-01-31" );
-//		Date fh = java.sql.Date.valueOf( "2020-01-31" );
-//		String dato  = "ba";
-//		return conflictosDao.buscarConflictoLaboralHecho(fd, fh, dato);
-//	}
+		return conflictosDao.buscarConflictoLaboralEmpresa(fechaDesde, fechaHasta, date);
+	}
 
 }

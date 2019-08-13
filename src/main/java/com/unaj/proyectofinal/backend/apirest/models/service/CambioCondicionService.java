@@ -9,13 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.unaj.proyectofinal.backend.apirest.models.dao.ICambioCondicionDao;
 import com.unaj.proyectofinal.backend.apirest.models.entity.CambioCondiciones;
+
 @Service
-public class CambioCondicionService implements ICambioCondicionService{
+public class CambioCondicionService implements ICambioCondicionService {
 
 	@Autowired
 	private ICambioCondicionDao cambioCondicion;
+
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	public List<CambioCondiciones> findAll() {
 		// TODO Auto-generated method stub
 		return (List<CambioCondiciones>) cambioCondicion.findAll();
@@ -38,28 +40,20 @@ public class CambioCondicionService implements ICambioCondicionService{
 	@Override
 	public void delete(Long id) {
 		cambioCondicion.deleteById(id);
-		
+
 	}
 
 	@Override
 	@Transactional
-	public  List buscarCambioCondicionUsuario(String date , Date fechaDesde, Date fechaHasta) {
-		// TODO Auto-generated method stub
-		Date fd = java.sql.Date.valueOf( "2000-01-31" );
-		Date fh = java.sql.Date.valueOf( "2020-01-31" );
-		String dato  = "pe";
+	public List<?> buscarCambioCondicionUsuario(String date, Date fechaDesde, Date fechaHasta) {
 		return cambioCondicion.buscarCambioCondicionUsuario(fechaDesde, fechaHasta, date);
-		
+
 	}
 
 	@Override
 	@Transactional
-	public List buscarCambioCondicionEmpresa(String date , Date fechaDesde, Date fechaHasta) {
-		Date fd = java.sql.Date.valueOf( "2000-01-31" );
-		Date fh = java.sql.Date.valueOf( "2020-01-31" );
-		String dato  = "me";
+	public List<?> buscarCambioCondicionEmpresa(String date, Date fechaDesde, Date fechaHasta) {
 		return cambioCondicion.buscarCambioCondicionEmpresa(fechaDesde, fechaHasta, date);
 	}
-	
 
 }

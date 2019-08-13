@@ -10,9 +10,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuarios")
@@ -28,47 +30,64 @@ public class Usuario implements Serializable {
 	private String username;
 
 	@Column(length = 60)
+	@JsonIgnore
 	private String password;
 	private Boolean enabled;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@JoinTable(uniqueConstraints= { @UniqueConstraint (columnNames= {"usuario_id","role_id"})})
+	// @JoinTable(uniqueConstraints= { @UniqueConstraint (columnNames=
+	// {"usuario_id","role_id"})})
 	private List<Role> roles;
-	
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Variaciones> variaciones;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<CambioCondiciones> cambioCondiciones;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<ConflictosLaborales> conflictosLaborales;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<ConflictosLaborales> usuarioRoles;
+
 	private String fechaInicioEnProyecto;
 	private String nombreUsuario;
 	private String apellidoUsuario;
-	
+
 	private String dni;
-	private String telefono; 
+	private String telefono;
 	private String telefonoCelular;
 	private String mail;
 	private String antiguedad;
-	
+
 	private String nombreEmpresa;
 	private String cuit;
 	private String actividad;
 	private String checkk;
 	private String direccion;
-	
+
 	private String localidad;
 	private String codigoPostal;
 	private String partido;
 	private String provincia;
 	private String sindicato;
-	
+
 	private String cct;
 	private String cctNro;
 	private String ramaActividad;
 	private String cctNro2;
 	private String ramaActividad2;
-	
+
 	private String cctNro3;
 	private String ramaActividad3;
 	private String cctNro4;
 	private String ramaActividad4;
 	private String descripcion;
-	
 
 	public Long getId() {
 		return id;
@@ -333,7 +352,5 @@ public class Usuario implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
 
 }

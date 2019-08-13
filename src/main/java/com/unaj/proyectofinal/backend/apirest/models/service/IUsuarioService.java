@@ -18,4 +18,8 @@ public interface IUsuarioService {
 	public void save(Usuario usuario, int role);
 	
 	public Usuario findByUsername(String username);
+
+
+
+	void deleteRoleByIdUsuario(Long id);
 }

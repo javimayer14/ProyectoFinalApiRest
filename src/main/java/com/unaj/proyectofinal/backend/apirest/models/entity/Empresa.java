@@ -2,15 +2,18 @@ package com.unaj.proyectofinal.backend.apirest.models.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity 
-@Table(name="empresa")
+@Entity
+@Table(name = "empresa")
 public class Empresa implements Serializable {
-	
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_empresa;
@@ -23,7 +26,6 @@ public class Empresa implements Serializable {
 	private String cp;
 	private String partido;
 	private String provincia;
-	
 
 	public long getId_empresa() {
 		return id_empresa;
@@ -93,16 +95,16 @@ public class Empresa implements Serializable {
 		return partido;
 	}
 
-	public void setPartido(String partido) {
-		partido = partido;
-	}
-
 	public String getProvincia() {
 		return provincia;
 	}
 
 	public void setProvincia(String provincia) {
-		provincia = provincia;
+		this.provincia = provincia;
+	}
+
+	public void setPartido(String partido) {
+		this.partido = partido;
 	}
 
 }

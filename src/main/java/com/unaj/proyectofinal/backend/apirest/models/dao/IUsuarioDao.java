@@ -1,5 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest.models.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -21,5 +23,10 @@ public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 	@Query(value = "DELETE FROM usuarios_roles  WHERE usuario_id = :idUsuario ", nativeQuery = true)
 	@Transactional
 	public void deleteRoleByIdUsuario(@Param("idUsuario") Long idUsuario);
+	
+	@Modifying
+	@Query(value = "SELECT * FROM historial WHERE id_usuario = :idUsuario ", nativeQuery = true)
+	@Transactional
+	public List<?> historial(@Param("idUsuario") Long idUsuario);
 
 }

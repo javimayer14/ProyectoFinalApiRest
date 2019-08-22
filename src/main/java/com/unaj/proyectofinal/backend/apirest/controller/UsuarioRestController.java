@@ -77,4 +77,10 @@ public class UsuarioRestController {
 		usuarioService.delete(id);
 	}
 
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
+	@GetMapping("/usuarios/historial")
+	public List<?> historial(@RequestParam String nombreUsuario) {
+		return usuarioService.historial(nombreUsuario);
+	}
+
 }

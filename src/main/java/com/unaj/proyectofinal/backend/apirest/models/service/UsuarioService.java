@@ -93,4 +93,11 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
 		return usuarioDao.findByUsername(username);
 	}
 
+	@Override
+	@Transactional
+	public List<?> historial(String nombreUsusario) {
+		Usuario usuario = usuarioDao.findByUsername(nombreUsusario);
+		return usuarioDao.historial(usuario.getId());
+	}
+
 }

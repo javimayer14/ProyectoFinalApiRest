@@ -6,13 +6,23 @@ insert into usuarios(username,password,enabled) values ('lala','$2a$10$Dbu3h9mNP
 
 
 
-INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripcion','2001-03-03','motivo principal','submotivo',1);
-INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripcion','2001-03-03','motivo principal','submotivo',2);
+INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripcion','2008-03-03','motivo principal','submotivo',1);
+INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripcion','2008-03-03','motivo principal','submotivo',2);
+INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripuuucion','2001-03-03','motivo principal','submotivo',1);
+INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descrwqwqipcion','2001-03-03','motivo principal','submotivo',2);
 INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',1);
 INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',2);
 INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',3);
+INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion des','2003-09-02',1,'incorporacion','alta',1);
+
 INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflicto','2004-08-01','paro','sueldo bajo',1);
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflickljlkjlk lkjto','2004-08-01','paro','sueldo bajo',1);
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflmmmmmmicto','2004-08-01','paro','sueldo bajo',1);
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'dsdsdsdfsdfsdfsdfsadf dsfsdfsdf','2004-08-01','paro','sueldo bajo',2);
 INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflicto','2004-08-01','paro','sueldo bajo',2);
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_confsslicto','2004-08-01','paro','sueldo bajo',2);
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflizzxcto','2004-08-01','paro','sueldo bajo',2);
+INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_confliccccto','2004-08-01','paro','sueldo bajo',2);
 
 
 
@@ -80,5 +90,5 @@ SELECT
 	id_usuario,
 	medida,
 	fecha
-		FROM conflicto_laboral 
-		ORDER BY fecha;
+		FROM conflicto_laboral;
+

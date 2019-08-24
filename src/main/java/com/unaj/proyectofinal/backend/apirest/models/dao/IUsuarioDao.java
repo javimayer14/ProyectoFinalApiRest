@@ -25,7 +25,7 @@ public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 	public void deleteRoleByIdUsuario(@Param("idUsuario") Long idUsuario);
 	
 	@Modifying
-	@Query(value = "SELECT * FROM historial WHERE id_usuario = :idUsuario ", nativeQuery = true)
+	@Query(value = "SELECT * FROM historial WHERE id_usuario = :idUsuario ORDER BY fecha desc; ", nativeQuery = true)
 	@Transactional
 	public List<?> historial(@Param("idUsuario") Long idUsuario);
 

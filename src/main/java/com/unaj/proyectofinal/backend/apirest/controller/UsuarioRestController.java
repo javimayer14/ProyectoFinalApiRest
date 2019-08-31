@@ -53,6 +53,8 @@ public class UsuarioRestController {
 	@PostMapping("/usuarios")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@RequestBody Usuario usuario, @RequestParam int role) {
+		System.out.println("hola");
+		System.out.println(usuario);
 		String passwordBcrypt = passwordEncoder.encode(usuario.getPassword());
 		usuario.setPassword(passwordBcrypt);
 		usuarioService.save(usuario, role);

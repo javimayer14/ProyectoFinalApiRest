@@ -1,19 +1,19 @@
 
-insert into usuarios(username,password,enabled) values ('andres','$2a$10$5pAOyS7Kdl0Bam4ZmjD0VOVBO6qx804V0pfTHSfxdKIw5DozkiX1m',1);
-insert into usuarios(username,password,enabled) values ('admin','$2a$10$Dbu3h9mNP4XkIG6Km3hjA.zdhGKuBCxBWBdTlNGdtAqkgMQp6H676',1);
-insert into usuarios(username,password,enabled) values ('lala','$2a$10$Dbu3h9mNP4XkIG6Km3hjA.zdhGKuBCxBWBdTlNGdtAqkgMQp6H676',1);
+insert into usuarios(username,password,enabled, nombre_usuario) values ('andres','$2a$10$5pAOyS7Kdl0Bam4ZmjD0VOVBO6qx804V0pfTHSfxdKIw5DozkiX1m',1,'andres');
+insert into usuarios(username,password,enabled, nombre_usuario) values ('admin','$2a$10$Dbu3h9mNP4XkIG6Km3hjA.zdhGKuBCxBWBdTlNGdtAqkgMQp6H676',1,'admin');
+insert into usuarios(username,password,enabled, nombre_usuario) values ('lala','$2a$10$Dbu3h9mNP4XkIG6Km3hjA.zdhGKuBCxBWBdTlNGdtAqkgMQp6H676',1,'lala');
 
 
 
 
+INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',3);
 INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripcion','2008-03-03','motivo principal','submotivo',1);
 INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripcion','2008-03-03','motivo principal','submotivo',2);
 INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descripuuucion','2001-03-03','motivo principal','submotivo',1);
-INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descrwqwqipcion','2001-03-03','motivo principal','submotivo',2);
 INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',1);
 INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',2);
-INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion','2003-09-02',1,'incorporacion','alta',3);
 INSERT INTO variacion_laboral (id_variacion,cantidad,descripcion,fecha,id_tipo_contrato,tipo_incorporacion,tipo_variacion,id_usuario) values (null,1,'descripcion des','2003-09-02',1,'incorporacion','alta',1);
+INSERT INTO cambio_laboral (id_cambio_condicion,descripcion,fecha,motivo_principal,sub_motivo,id_usuario) values (null,'descrwqwqipcion','2001-03-03','motivo principal','submotivo',2);
 
 INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflicto','2004-08-01','paro','sueldo bajo',1);
 INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_usuario) values (null,'descripcion_conflickljlkjlk lkjto','2004-08-01','paro','sueldo bajo',1);

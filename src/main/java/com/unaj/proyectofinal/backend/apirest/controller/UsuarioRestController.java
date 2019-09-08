@@ -1,5 +1,6 @@
 package com.unaj.proyectofinal.backend.apirest.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -77,6 +78,15 @@ public class UsuarioRestController {
 	public void delete(@PathVariable Long id) {
 		usuarioService.deleteRoleByIdUsuario(id);
 		usuarioService.delete(id);
+	}
+	
+	@Secured("ROLE_ADMIN")
+	@GetMapping("usuarios/historial/delete")
+	public void deleteRegistroHistorial(@RequestParam String tipo,
+										@RequestParam String idUsuario,
+										@RequestParam Date fecha,
+										@RequestParam String desc) {
+		usuarioService.deleteRegistroHistorial(tipo, idUsuario, fecha, desc);
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_USER" })

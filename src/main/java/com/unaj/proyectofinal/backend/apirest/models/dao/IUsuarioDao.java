@@ -1,5 +1,6 @@
 package com.unaj.proyectofinal.backend.apirest.models.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -28,5 +29,26 @@ public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 	@Query(value = "SELECT * FROM historial WHERE id_usuario = :idUsuario ORDER BY fecha desc; ", nativeQuery = true)
 	@Transactional
 	public List<?> historial(@Param("idUsuario") Long idUsuario);
+	
+	@Modifying
+	@Query(value = "DELETE FROM cambio_laboral cl WHERE cl.id_usuario = :idUsuario AND\n" + 
+			"									cl.fecha = :fecha AND\n" + 
+			"									cl.descripcion = :desc ", nativeQuery = true)
+	@Transactional
+	public void deleteCambio(@Param("idUsuario") String idUsuario,@Param("fecha") Date fecha,@Param("desc") String desc);
+	
+	@Modifying
+	@Query(value = "DELETE FROM conflicto_laboral conf WHERE conf.id_usuario = :idUsuario AND conf.fecha= :fecha AND conf.descripcion= :desc ;", nativeQuery = true)
+	@Transactional
+	public void deleteConflicto(@Param("idUsuario") String idUsuario,@Param("fecha") Date fecha,@Param("desc") String desc);
 
+	
+	@Modifying
+	@Query(value = "DELETE FROM variacion_laboral var WHERE var.id_usuario = :idUsuario AND\n" + 
+			"										var.fecha= :fecha AND\n" + 
+			"                                        var.descripcion = :desc", nativeQuery = true)
+	@Transactional
+	public void deleteVariacion(@Param("idUsuario") String idUsuario,@Param("fecha") Date fecha,@Param("desc") String desc);
+
+	
 }

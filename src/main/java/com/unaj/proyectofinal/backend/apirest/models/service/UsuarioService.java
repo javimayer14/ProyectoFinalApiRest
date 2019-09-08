@@ -1,5 +1,6 @@
 package com.unaj.proyectofinal.backend.apirest.models.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -98,6 +99,29 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
 	public List<?> historial(String nombreUsusario) {
 		Usuario usuario = usuarioDao.findByUsername(nombreUsusario);
 		return usuarioDao.historial(usuario.getId());
+	}
+	
+
+	@Override
+	@Transactional
+	public void deleteRegistroHistorial(String tipo, String idUsuario, Date fecha, String desc) {
+		
+		if(Integer.parseInt(tipo)== 3) {
+			usuarioDao.deleteVariacion(idUsuario, fecha, desc);
+		}
+		else if (Integer.parseInt(tipo)== 2){
+			usuarioDao.deleteCambio(idUsuario, fecha, desc);
+		}  
+		else if (Integer.parseInt(tipo)== 1) {
+			System.out.println(tipo.toString());
+			System.out.println(fecha.toString());
+			System.out.println(idUsuario.toString());
+			System.out.println(desc.toString());
+
+			
+			usuarioDao.deleteConflicto(idUsuario, fecha, desc); 
+		}
+		
 	}
 
 }

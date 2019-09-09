@@ -86,7 +86,7 @@ public class UsuarioRestController {
 										@RequestParam String idUsuario,
 										@RequestParam Date fecha,
 										@RequestParam String desc) {
-		usuarioService.deleteRegistroHistorial(tipo, idUsuario, fecha, desc);
+		usuarioService.deleteRegistroHistorial(tipo, idUsuario, fecha , desc);
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_USER" })

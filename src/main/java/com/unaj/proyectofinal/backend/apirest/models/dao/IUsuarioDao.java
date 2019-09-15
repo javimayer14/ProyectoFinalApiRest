@@ -13,6 +13,8 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.Usuario;
 
 public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 
+	@Query("					 FROM Usuario u" + 
+			"					 WHERE u.username = :username")
 	public Usuario findByUsername(String username);
 
 	@Modifying

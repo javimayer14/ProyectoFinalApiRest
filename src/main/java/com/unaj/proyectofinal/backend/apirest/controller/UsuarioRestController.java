@@ -49,6 +49,12 @@ public class UsuarioRestController {
 	public Usuario show(@PathVariable Long id) {
 		return usuarioService.findById(id);
 	}
+	
+	@Secured({ "ROLE_ADMIN" })
+	@GetMapping("/usuarios/nombreusuario")
+	public Usuario findByUsername(@RequestParam String nombreUsuario) {
+		return usuarioService.findByUsername(nombreUsuario);
+	}
 
 	@Secured("ROLE_ADMIN")
 	@PostMapping("/usuarios")
@@ -94,5 +100,7 @@ public class UsuarioRestController {
 	public List<?> historial(@RequestParam String nombreUsuario) {
 		return usuarioService.historial(nombreUsuario);
 	}
+	
+	
 
 }

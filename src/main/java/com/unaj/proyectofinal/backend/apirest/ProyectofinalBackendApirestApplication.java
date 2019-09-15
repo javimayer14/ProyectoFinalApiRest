@@ -1,5 +1,7 @@
 package com.unaj.proyectofinal.backend.apirest;
 
+import java.util.TimeZone;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +21,7 @@ public class ProyectofinalBackendApirestApplication implements CommandLineRunner
 
 	@Override
 	public void run(String... args) throws Exception {
+		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		String password = "12345";
 		
 		for(int i = 0;i<4; i++) {

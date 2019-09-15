@@ -18,4 +18,9 @@ public class RelevamientoInicialService implements IRelevamientoInicialService {
 		return relevamientoDao.save(relevamientoInicial);
 		
 	}
+
+	@Override
+	public RelevamientoInicial findByIdUser(Long id) {
+		return relevamientoDao.relevamientoByIdUser(id);
+	}
 }

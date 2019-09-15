@@ -6,4 +6,7 @@ public interface IRelevamientoInicialService {
 	
 		public RelevamientoInicial save(RelevamientoInicial relevamientoInicial) ;
 		
+		public RelevamientoInicial findByIdUser(Long id) ;
+
+		
 }

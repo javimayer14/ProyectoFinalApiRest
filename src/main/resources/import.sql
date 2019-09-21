@@ -29,15 +29,15 @@ INSERT INTO conflicto_laboral (id_conflicto,descripcion,fecha,medida,motivo,id_u
 
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Directo');
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Subcontratado');
-INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Pasantía o Beca');
+INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Pasantia o Beca');
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Monotributista');
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Subvencionado');
-INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion',' Contrato temporario');
+INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Contrato temporario');
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Jubilado');
-INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Tercerizado');
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Por agencia');
 INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Persona con discapacidad');
-INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','En negro');
+INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','No registrados');
+INSERT INTO tipo_contrato (id_tipo_contrato,descripcion,nombre_contrato) values (null,'descripcion','Otro');                  
 
 
 insert into roles (nombre) values ('ROLE_USER');

@@ -20,7 +20,7 @@ import com.unaj.proyectofinal.backend.apirest.models.entity.RelevamientoInicial;
 import com.unaj.proyectofinal.backend.apirest.models.service.ICambioCondicionService;
 import com.unaj.proyectofinal.backend.apirest.models.service.IRelevamientoInicialService;
 
-@CrossOrigin(origins = { "http://localhost:8100", "http://localhost:4200" })
+@CrossOrigin(origins = { "*" })
 @RestController
 @RequestMapping("/api")
 public class RelevamientoInicialRestController {

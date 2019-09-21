@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unaj.proyectofinal.backend.apirest.models.entity.Usuario;
 import com.unaj.proyectofinal.backend.apirest.models.service.IUsuarioService;
 
-@CrossOrigin(origins = { "http://localhost:8100", "http://localhost:4200" })
+@CrossOrigin(origins = { "*" })
 
 @RestController
 @RequestMapping("/api")

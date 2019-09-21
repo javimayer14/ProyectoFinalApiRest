@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unaj.proyectofinal.backend.apirest.models.entity.Variaciones;
 import com.unaj.proyectofinal.backend.apirest.models.service.IVariacionesService;
 
-@CrossOrigin(origins = { "http://localhost:8100", "http://localhost:4200" })
+@CrossOrigin(origins = { "*" })
 @RestController
 @RequestMapping("/api")
 public class VariacionesRestController {

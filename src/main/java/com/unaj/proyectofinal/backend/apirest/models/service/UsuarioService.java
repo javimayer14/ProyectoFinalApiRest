@@ -85,7 +85,7 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
 
 	@Override
 	public void save(Usuario usuario) {
-		// TODO Auto-generated method stub
+		usuarioDao.save(usuario);
 
 	}
 

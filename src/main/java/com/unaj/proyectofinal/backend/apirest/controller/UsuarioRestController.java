@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -49,7 +50,7 @@ public class UsuarioRestController {
 	public Usuario show(@PathVariable Long id) {
 		return usuarioService.findById(id);
 	}
-	
+
 	@Secured({ "ROLE_ADMIN" })
 	@GetMapping("/usuarios/nombreusuario")
 	public Usuario findByUsername(@RequestParam String nombreUsuario) {
@@ -71,10 +72,24 @@ public class UsuarioRestController {
 	@PutMapping("usuarios/{id}")
 	public void update(@RequestBody Usuario usuario, @PathVariable Long id) {
 		Usuario usuarioActual = usuarioService.findById(id);
+		if (usuarioActual == null) {
+			ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+			return;
+		}
+		if (usuario.getPassword() != null) {
+			String passwordBcrypt = passwordEncoder.encode(usuario.getPassword());
+			usuarioActual.setPassword(passwordBcrypt);
+		}
 
 		usuarioActual.setApellidoUsuario(usuario.getApellidoUsuario());
 		usuarioActual.setNombreUsuario(usuario.getNombreUsuario());
-
+		usuarioActual.setUsername(usuario.getUsername());
+		usuarioActual.setDni(usuario.getDni());
+		usuarioActual.setFechaInicioEnProyecto(usuario.getFechaInicioEnProyecto());
+		usuarioActual.setTelefono(usuario.getTelefono());
+		usuarioActual.setTelefonoCelular(usuario.getTelefonoCelular());
+		usuarioActual.setSindicato(usuario.getSindicato());
+		usuarioActual.setAntiguedad(usuario.getAntiguedad());
 		usuarioService.save(usuarioActual);
 
 	}
@@ -85,14 +100,12 @@ public class UsuarioRestController {
 		usuarioService.deleteRoleByIdUsuario(id);
 		usuarioService.delete(id);
 	}
-	
+
 	@Secured("ROLE_ADMIN")
 	@GetMapping("usuarios/historial/delete")
-	public void deleteRegistroHistorial(@RequestParam String tipo,
-										@RequestParam String idUsuario,
-										@RequestParam Date fecha,
-										@RequestParam String desc) {
-		usuarioService.deleteRegistroHistorial(tipo, idUsuario, fecha , desc);
+	public void deleteRegistroHistorial(@RequestParam String tipo, @RequestParam String idUsuario,
+			@RequestParam Date fecha, @RequestParam String desc) {
+		usuarioService.deleteRegistroHistorial(tipo, idUsuario, fecha, desc);
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
@@ -100,7 +113,5 @@ public class UsuarioRestController {
 	public List<?> historial(@RequestParam String nombreUsuario) {
 		return usuarioService.historial(nombreUsuario);
 	}
-	
-	
 
 }
